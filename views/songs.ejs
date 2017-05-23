@@ -1,0 +1,24 @@
+<h2>Songs</h2>
+
+<div class="container-fluid">
+  <div class="row">
+    <% songs.forEach(function(song){ %>
+      <div class="col-4" style="font-size:20px;">
+        <%= song.name %>
+      </div>
+      <% }) %>
+  </div>
+</div>
+
+<div class="col-xs-12">
+  <audio id="audioPlayer" src="/music/Alan Walker - Force.mp3" preload="auto" />
+</div>
+<div class="col-xs-12">
+  <div class="" style="background-color:#eee;width100%;padding:5px;">
+    Name
+  </div>
+</div>
+
+<script>
+    var as = audiojs.createAll();
+</script>
