@@ -1,0 +1,30 @@
+.audiojs .play-pause {
+  padding-left: 0;
+}
+
+.audiojs {
+  width: 100%;
+}
+
+.audiojs .scrubber {
+  width: calc(100% - 150px);
+}
+
+.play-btn{
+    border-radius: 10px;
+}
+.music-player{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}
+
+.music-list .play-col{
+    width:50px;
+}
+
+.song-name{
+    background-color:#eee;
+    width:100%;
+    padding:5px;
+}
