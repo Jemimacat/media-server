@@ -10,6 +10,11 @@ module.exports = {
   attributes: {
       name:{
           type: 'string'
+      },
+      playCount:{
+          type: 'integer',
+          defaultsTo: 0,
+          required: false
       }
   }
 };

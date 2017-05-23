@@ -13,5 +13,11 @@ module.exports = {
 		var params = req.params.all();
 		var audioFile = path.join('assets/music/',params.song);
 		mediaserver.pipe(req,res,path.resolve(audioFile));
+
+		Song.find({name:params.song}).exec(function (err,songs) {
+			var song = songs[0];
+			song.playCount += 1;
+			song.save();
+		});
 	}
 };

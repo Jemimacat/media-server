@@ -10,6 +10,9 @@
             <td>
               <%= song.name %>
             </td>
+            <td>
+                <%= song.playCount %>
+            </td>
           </tr>
           <% }) %>
       </tbody>
@@ -19,7 +22,7 @@
 
 <div class="music-player">
   <div class="col-xs-12">
-    <audio id="audioPlayer" src="/music/Alan Walker - Force.mp3" preload="auto" />
+    <audio id="audioPlayer" src=""/>
   </div>
   <div class="col-xs-12">
     <div class="song-name">
@@ -29,11 +32,14 @@
 </div>
 
 <script>
-  var as = audiojs.createAll();
+  var as;
 
   var playBtns = document.getElementsByClassName('play-btn');
 
   var playSong = function(e) {
+      if (!as) {
+          as = audiojs.createAll();
+      }
     as[0].load("/music/" + e.currentTarget.value);
     as[0].play();
     document.getElementsByClassName('song-name')[0].innerHTML = e.currentTarget.value;
