@@ -35,7 +35,9 @@ module.exports.routes = {
   // '/': {
   //   view: 'homepage'
   // }
-  '/music/:song': 'MusicController.index' 
+  '/music/:song': 'MusicController.index',
+  '/admin/newSong': 'AdminController.newSong',
+  'POST /admin/addSong': 'AdminController.addSong',
 
 
   /***************************************************************************

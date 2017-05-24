@@ -11,6 +11,9 @@ module.exports = {
       name:{
           type: 'string'
       },
+      fileName:{
+          type: 'string',
+      },
       playCount:{
           type: 'integer',
           defaultsTo: 0,

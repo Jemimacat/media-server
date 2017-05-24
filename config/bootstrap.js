@@ -15,7 +15,7 @@ module.exports.bootstrap = function(cb) {
   // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
   fs.readdir('assets//music//',(err,files) =>{
       files.forEach((file) =>{
-          Song.create({name:file}).exec((err,created) =>{
+          Song.create({name:file,fileName:file}).exec((err,created) =>{
               console.log('Created song with name ' + created.name);
           });
       });
