@@ -39,6 +39,8 @@ module.exports.routes = {
   '/admin/newSong': 'AdminController.newSong',
   'POST /admin/addSong': 'AdminController.addSong',
 
+  '/admin/login': 'AdminController.login',
+  'POST /admin/sign-in': 'AdminController.signIn'
 
   /***************************************************************************
   *                                                                          *
