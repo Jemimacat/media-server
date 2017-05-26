@@ -20,5 +20,11 @@ module.exports.bootstrap = function(cb) {
           });
       });
   });
+
+  User.create({username: 'Matt20', encryptedPassword:'password'}).exec((err,created) =>{
+    console.log('Created :');
+    console.log(created);
+  });
+
   cb();
 };

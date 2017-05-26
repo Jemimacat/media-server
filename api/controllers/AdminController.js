@@ -5,18 +5,28 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
+const CryptoJs = require('crypto-js');
 module.exports = {
   'login': function(req, res) {
     return res.view('login');
   },
   'signIn': function(req, res) {
     var params = req.params.all();
-    if (params.Username === "TEST" && params.Password === "TEST") {
-      req.session.authenticated = true;
-      return res.redirect('/admin/newSong');
-    } else {
-      return res.redirect('/admin/login');
-    }
+
+    var cipherText = CryptoJs.SHA256(params.Password).toString();
+    console.log(cipherText)
+    User.findOne({
+        username: params.Username,
+        encryptedPassword: cipherText
+    }).exec((err,user) =>{
+        if (err || !user) {
+            req.session.destroy();
+            return res.redirect('/admin/login');
+        }else if (user) {
+            req.session.authenticated = true;
+            return res.redirect('/admin/newSong');
+        }
+    })
   },
   'newSong': function(req, res) {
     return res.view('newSong');

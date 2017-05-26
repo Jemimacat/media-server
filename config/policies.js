@@ -28,9 +28,9 @@ module.exports.policies = {
 
   // '*': true,
   AdminController: {
-    '*': 'sessionAuth',
     'login': true,
-    'signIn': true
+    'signIn': true,
+    '*': 'sessionAuth'
   }
 
   /***************************************************************************
