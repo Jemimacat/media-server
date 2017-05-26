@@ -10,5 +10,12 @@ module.exports = {
         Song.find().exec(function (err,songs) {
             return res.view('songs',{songs:songs});
         });
+    },
+    search:function (req,res) {
+        var params = req.params.all();
+
+        Song.find().where({name:{contains:params.searchText}}).exec(function (err,songs) {
+            return res.view('songs',{songs:songs});
+        });
     }
 };

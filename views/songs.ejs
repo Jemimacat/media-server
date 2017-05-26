@@ -2,6 +2,11 @@
 
 <div class="container-fluid">
   <div class="row">
+      <form class="form-inline" action="/song/search" method="post">
+          <input type="text" class="form-control" name="searchText" placeholder="Search..." required="" autofocus="" />
+          <input type='hidden' name='_csrf' value='<%= _csrf %>'>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     <table class="table music-list">
       <tbody>
         <% songs.forEach(function(song){ %>
